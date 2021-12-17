@@ -1,0 +1,55 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1170px;
+  padding: 0 16px;
+  margin: 0 auto;
+}
+
+form {
+  margin-bottom: 60px;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+
+th {
+  height: 30px;
+  width: 150px;
+  border: 1px solid red;
+}
+
+td {
+  height: 45px;
+  width: 150px;
+  border: 1px solid red;
+  vertical-align: middle;
+  text-align: center;
+  padding: 8px;
+}
+.table__Born-year {
+  position: relative;
+}
+
+.table__sort-icon {
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  right: 10px;
+  top: 5px;
+}
+
+.table__sort-icon svg {
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+}
+
+.table__employment-date {
+  position: relative;
+  width: 190px;
+}
