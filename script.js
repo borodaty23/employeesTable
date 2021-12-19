@@ -20,7 +20,7 @@ const drawCard = (data) => {
   tableBody.innerHTML = "";
   data.userCard.forEach((el, i) => {
     tableBody.innerHTML += `
-    <tr id = "cardUser">
+    <tr id = "">
     <td><input class="inputCheckBox" id="${el.checkBoxId}" type="checkbox"></td>
   <td>${el.name}</td>
   <td>${el.userBorn}</td>
@@ -34,18 +34,28 @@ const drawCard = (data) => {
 const deleteCheckedCards = (data) => {
   let massAllInputCheckBocks = [...document.querySelectorAll(".inputCheckBox")];
 
-  for (let i = 0; i < massAllInputCheckBocks.length; i++) {
+  // for (let i = 0; i < massAllInputCheckBocks.length; i++) {
+  //   data.userCard.forEach((el, j) => {
+  //     if (
+  //       massAllInputCheckBocks[i].checked === true &&
+  //       +massAllInputCheckBocks[i].id === el.checkBoxId
+  //     ) {
+  //       data.userCard.splice(j, 1);
+  //     } else {
+  //       console.log("c");
+  //     }
+  //   });
+  // }
+
+  massAllInputCheckBocks.forEach((elMass, i) => {
     data.userCard.forEach((el, j) => {
-      if (
-        massAllInputCheckBocks[i].checked === true &&
-        +massAllInputCheckBocks[i].id === el.checkBoxId
-      ) {
+      if (elMass.checked === true && +elMass.id === el.checkBoxId) {
         data.userCard.splice(j, 1);
       } else {
         console.log("c");
       }
     });
-  }
+  });
 };
 
 const sumOfCheckedCards = (data) => {
@@ -53,18 +63,29 @@ const sumOfCheckedCards = (data) => {
   let massAllInputCheckBocks = [...document.querySelectorAll(".inputCheckBox")];
   let countSum = 0;
 
-  for (let i = 0; i < massAllInputCheckBocks.length; i++) {
+  // for (let i = 0; i < massAllInputCheckBocks.length; i++) {
+  //   data.userCard.forEach((el, j) => {
+  //     if (
+  //       massAllInputCheckBocks[i].checked === true &&
+  //       +massAllInputCheckBocks[i].id === el.checkBoxId
+  //     ) {
+  //       countSum += +el.wage;
+  //     } else {
+  //       console.log("c");
+  //     }
+  //   });
+  // }
+
+  massAllInputCheckBocks.forEach((elMass, i) => {
     data.userCard.forEach((el, j) => {
-      if (
-        massAllInputCheckBocks[i].checked === true &&
-        +massAllInputCheckBocks[i].id === el.checkBoxId
-      ) {
+      if (elMass.checked === true && +elMass.id === el.checkBoxId) {
         countSum += +el.wage;
       } else {
         console.log("c");
       }
     });
-  }
+  });
+
   sum.innerHTML = `Sum $: ${countSum}`;
 };
 
@@ -72,13 +93,9 @@ const sortCardsByYearOfBorn = (data, yearOfBornSortIcon) => {
   yearOfBornSortIcon.classList.toggle("true");
 
   if (yearOfBornSortIcon.classList.contains("true")) {
-    data.userCard.sort(
-      (a, b) => parseFloat(a.userBorn) - parseFloat(b.userBorn)
-    );
+    data.userCard.sort((a, b) => a.userBorn - b.userBorn);
   } else {
-    data.userCard.sort(
-      (a, b) => parseFloat(b.userBorn) - parseFloat(a.userBorn)
-    );
+    data.userCard.sort((a, b) => b.userBorn - a.userBorn);
   }
 };
 
@@ -116,6 +133,9 @@ const init = () => {
   const data = {
     userCard: [],
   };
+
+  localStorage.setItem("data", JSON.stringify(data));
+  let dataLocal = JSON.parse(localStorage.getItem("data"));
 
   addUserButton.addEventListener("click", (event) => {
     event.preventDefault();

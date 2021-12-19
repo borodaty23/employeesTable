@@ -10,7 +10,9 @@
 <body>
     <section class="table">
         <div class="container">
-            <form id="form" action="">
+            <h1 class="table__title">List of employees</h1>
+
+            <form class="table__form" id="form" action="">
                 <input class="table__user-name" id="inputName" type="text" placeholder="name:">
                 <input class="table__user-born" id="inputUserBorn" type="text" placeholder="year of bor:">
                 <input class="table__join-date" id="inputDate" type="date" placeholder="">
@@ -19,8 +21,8 @@
             </form>
 
 
-            <p id = "count">number of employees:</p>
-            <p id="sum">Sum $:</p>
+            <p class="table__employee-counter" id = "count">Number of employees:</p>
+            <p class="table__sum-wage" id="sum">Sum wage:</p>
             <table class="table__table-wrap">
                 <thead class="table__table-header">
                     <tr>

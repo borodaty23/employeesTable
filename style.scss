@@ -1,0 +1,121 @@
+@import url("https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+thead {
+  border-collapse: collapse;
+}
+
+th {
+  height: 30px;
+  width: 150px;
+  border: 1px solid red;
+}
+
+td {
+  height: 45px;
+  width: 150px;
+  border: 1px solid red;
+  vertical-align: middle;
+  text-align: center;
+  padding: 8px;
+}
+
+input {
+  width: calc((100% - 75%) - 84px);
+  margin-bottom: 25px;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.inputCheckBox {
+  padding: 0;
+  border-radius: 0;
+  margin-bottom: 0;
+  width: 15px;
+  height: 15px;
+}
+
+input:last-child {
+  margin-bottom: 0px;
+  cursor: pointer;
+}
+
+.table {
+  border-collapse: collapse;
+  margin: 0 auto;
+  background-color: rgb(199, 183, 160);
+  height: 100vh;
+  padding-top: 45px;
+
+  .container {
+    max-width: 1170px;
+    padding: 0 16px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    text-align: center;
+    margin-bottom: 35px;
+    font-family: Shadows Into Light;
+    font-size: 60px;
+    letter-spacing: 5px;
+    font-weight: 700;
+  }
+
+  &__form {
+    margin-bottom: 60px;
+    border: 2px solid black;
+    border-radius: 12px;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 84px;
+  }
+
+  table {
+    margin: 0 auto;
+    border-collapse: collapse;
+  }
+
+  &__employee-counter {
+    font-family: Shadows Into Light;
+    font-weight: 600;
+    font-size: 23px;
+    margin-bottom: 10px;
+  }
+
+  &__sum-wage {
+    font-family: Shadows Into Light;
+    font-weight: 600;
+    font-size: 23px;
+    margin-bottom: 35px;
+  }
+
+  &__Born-year {
+    position: relative;
+  }
+
+  &__sort-icon {
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    right: 10px;
+    top: 5px;
+  }
+
+  &__sort-icon svg {
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+  }
+
+  &__employment-date {
+    position: relative;
+    width: 190px;
+  }
+}
