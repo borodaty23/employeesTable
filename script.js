@@ -29,6 +29,7 @@ const drawCard = (data) => {
   </tr>
   `;
   });
+  localStorage.setItem("data", JSON.stringify(data));
 };
 
 const deleteCheckedCards = (data) => {
@@ -134,13 +135,21 @@ const init = () => {
     userCard: [],
   };
 
-  localStorage.setItem("data", JSON.stringify(data));
   let dataLocal = JSON.parse(localStorage.getItem("data"));
+  drawCard(dataLocal);
 
   addUserButton.addEventListener("click", (event) => {
     event.preventDefault();
-    eddUserCar(data);
-    drawCard(data);
+    if (dataLocal === ![]) {
+      eddUserCar(data);
+      drawCard(dataLocal);
+    } else {
+      eddUserCar(data);
+      drawCard(data);
+    }
+
+    console.log(data);
+    console.log(dataLocal);
     count.innerHTML = `number of employees: ${data.userCard.length}`;
   });
 
@@ -178,6 +187,10 @@ const init = () => {
     // data.userCard.sort((a, b) => a.dateOfHiring - b.dateOfHiring);
     console.log(data.userCard);
   });
+  // let dataLocal = JSON.parse(localStorage.getItem("data"));
+  // drawCard(dataLocal);
+
+  // drawCard(dataLocal);
 };
 
 init();
